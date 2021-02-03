@@ -130,7 +130,7 @@ kernel-librem5.gz: src/linux_config_librem5 src/linux-librem5
 	@cp build/linux-librem5/arch/arm64/boot/Image.gz $@
 	@cp build/linux-librem5/arch/arm64/boot/dts/freescale/imx8mq-librem5*.dtb dtbs/librem5/
 
-dtbs/librem5/imx8mq-librem5-r4.dtb: kernel-librem5.gz
+dtbs/librem5/imx8mq-librem5.dtb: kernel-librem5.gz
 
 %.scr: src/%.txt
 	@echo "MKIMG $@"
@@ -214,7 +214,7 @@ src/busybox:
 .PHONY: clean cleanfast purism-librem5
 
 	@echo 'All done! Switch your phone into flashing mode and run Jumpdrive with `uuu src/purism-librem5.txt`'
-purism-librem5: initramfs-purism-librem5.gz kernel-librem5.gz u-boot-librem5.bin src/purism-librem5.txt dtbs/librem5/imx8mq-librem5-r4.dtb
+purism-librem5: initramfs-purism-librem5.gz kernel-librem5.gz u-boot-librem5.bin src/purism-librem5.txt dtbs/librem5/imx8mq-librem5.dtb
 
 cleanfast:
 	@rm -rvf build
